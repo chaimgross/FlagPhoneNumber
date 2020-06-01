@@ -3,6 +3,7 @@
 //  FlagPhoneNumber
 //
 //  Created by Aurélien Grifasi on 06/08/2017.
+//  Modified by Radu Ursache on 21/05/2020
 //  Copyright (c) 2017 Aurélien Grifasi. All rights reserved.
 //
 
@@ -17,6 +18,8 @@ open class FPNTextField: UITextField {
         }
     }
 
+    open var clearPhoneNrWhenChangingCountry: Bool = false
+    
     private var flagWidthConstraint: NSLayoutConstraint?
     private var flagHeightConstraint: NSLayoutConstraint?
 
@@ -197,6 +200,9 @@ open class FPNTextField: UITextField {
             inputView = pickerView
             inputAccessoryView = getToolBar(with: getCountryListBarButtonItems())
             reloadInputViews()
+            if clearPhoneNrWhenChangingCountry {
+                text = ""
+            }
             becomeFirstResponder()
 
             pickerView.didSelect = { [weak self] country in
@@ -211,7 +217,7 @@ open class FPNTextField: UITextField {
                 pickerView.setCountry(firstCountry.code)
             }
         case .list:
-            (delegate as? FPNTextFieldDelegate)?.fpnDisplayCountryList()
+            (delegate as? FPNTextFieldDelegate)?.fpnDisplayCountryList?()
         }
     }
 
@@ -272,7 +278,8 @@ open class FPNTextField: UITextField {
 
         for country in countries {
             if country.code == countryCode {
-                return fpnDidSelect(country: country)
+                self.fpnDidSelect(country: country)
+                return
             }
         }
     }
