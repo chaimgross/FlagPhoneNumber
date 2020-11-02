@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name             = 'FlagPhoneNumber'
-	s.version          = '0.8.2'
+	s.version          = '0.8.3'
 	s.summary          = 'A formatted phone number UITextField with country flag picker.'
 
 	s.description      = <<-DESC
@@ -9,10 +9,8 @@ Pod::Spec.new do |s|
 
 	s.homepage         = 'https://github.com/rursache/FlagPhoneNumber'
 	s.license          = { :type => 'Apache License 2.0', :file => 'LICENSE' }
-	s.author           = { 'Aurélien Grifasi' => 'aurelien.grifasi@chronotruck.com' }
-	s.author           = { 'Aurélien Grifasi' => 'aurelien.grifasi@chronotruck.com',
-                 		   'Radu Ursache'     => 'radu@ursache.ro' }
-	s.source           = { :git => 'https://github.com/rursache/FlagPhoneNumber.git', :tag => s.version.to_s }
+	s.author           = { 'Chaim Gross' => 'chaimg@sifradigital.com' }
+	s.source           = { :git => 'https://github.com/chaimgross/FlagPhoneNumber.git', :tag => s.version.to_s }
 
 	s.ios.deployment_target = '8.0'
 	s.source_files = 'Sources/**/*.swift'
