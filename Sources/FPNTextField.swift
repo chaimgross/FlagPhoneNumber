@@ -217,7 +217,7 @@ open class FPNTextField: UITextField {
                 pickerView.setCountry(firstCountry.code)
             }
         case .list:
-            (delegate as? FPNTextFieldDelegate)?.fpnDisplayCountryList?()
+            (delegate as? FPNTextFieldDelegate)?.fpnDisplayCountryList()
         }
     }
 
